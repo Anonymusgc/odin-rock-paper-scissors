@@ -1,7 +1,7 @@
 "use strict";
 
 const getPlayerChoice = () => {
-  let playerChoice = prompt("");
+  let playerChoice = prompt("Choose rock, paper or scissors");
   playerChoice = playerChoice.trim().toLowerCase();
   console.log(playerChoice);
 
@@ -29,10 +29,32 @@ const getComputerChoice = () => {
 
 const playRound = (playerChoice, computerChoice) => {
   // let result = "";
-
-  if (playerChoice == "rock" && computerChoice == "rock") {
+  const rock = "rock";
+  const scissors = "scissors";
+  const paper = "paper";
+  if (playerChoice == "") {
+    alert(`You didn't choose anything `);
+  }
+  if (playerChoice == rock && computerChoice == rock) {
+    console.log(`Draw, let's go another round`);
     return playRound(getPlayerChoice(), getComputerChoice());
-  } else if (playerChoice == "rock" && computerChoice == "paper") {
-    return;
+  } else if (playerChoice == rock && computerChoice == paper) {
+    return `You lose! ${paper} beats ${rock}`;
+  } else if (playerChoice == rock && computerChoice == scissors) {
+    return `You Win! ${rock} beats ${scissors}`;
+  } else if (playerChoice == paper && computerChoice == paper) {
+    console.log(`Draw, let's go another round`);
+    return playRound(getPlayerChoice(), getComputerChoice());
+  } else if (playerChoice == paper && computerChoice == scissors) {
+    return `You Lose! ${scissors} beats ${paper}`;
+  } else if (playerChoice == paper && computerChoice == rock) {
+    return `You Win! ${paper} beats ${rock}`;
+  } else if (playerChoice == scissors && computerChoice == scissors) {
+    console.log(`Draw, let's go another round`);
+    return playRound(getPlayerChoice(), getComputerChoice());
+  } else if (playerChoice == scissors && computerChoice == rock) {
+    return `You Lose! ${rock} beats ${scissors}`;
+  } else if (playerChoice == scissors && computerChoice == paper) {
+    return `You Win! ${scissors} beats ${paper}`;
   }
 };
