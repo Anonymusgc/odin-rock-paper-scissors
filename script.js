@@ -75,9 +75,9 @@ const game = () => {
     }
   }
   if (playerScore > computerScore) {
-    console.log(`You win! Well done`);
+    console.log(`You win the game! Well done.`);
   } else {
-    console.log(`You lose! Good luck next time`);
+    console.log(`You lose the game! Good luck next time.`);
   }
   // console.log(playerScore);
   // console.log(computerScore);
