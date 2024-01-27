@@ -65,15 +65,15 @@ const playRound = (playerChoice, computerChoice) => {
 const game = () => {
   let playerScore = 0;
   let computerScore = 0;
-  for (let i = 0; i < 5; i++) {
-    const results = playRound(getPlayerChoice(), getComputerChoice());
-    console.log(results[0]);
-    if (results[1] == 0) {
-      computerScore++;
-    } else {
-      playerScore++;
-    }
+  // for (let i = 0; i < 5; i++) {
+  const results = playRound(getPlayerChoice(), getComputerChoice());
+  console.log(results[0]);
+  if (results[1] == 0) {
+    computerScore++;
+  } else {
+    playerScore++;
   }
+  // }
   if (playerScore > computerScore) {
     console.log(`You win the game! Well done.`);
   } else {
