@@ -3,6 +3,7 @@
 let playerScore = 0;
 let computerScore = 0;
 let winner = "";
+let gameEnd = false;
 
 const getComputerChoice = () => {
   const randomChoice = Math.floor(Math.random() * (3 - 1 + 1) + 1);
@@ -24,12 +25,9 @@ const getComputerChoice = () => {
 };
 
 const displayResults = (
-  playerChoice,
-  computerChoice,
-  playerScore,
-  computerScore,
-  result,
-  winner
+  playerChoice = "",
+  computerChoice = "",
+  result = ""
 ) => {
   const playerChoiceDisplay = document.querySelector(".player-choice");
   const computerChoiceDisplay = document.querySelector(".computer-choice");
@@ -47,6 +45,9 @@ const displayResults = (
 };
 
 const playRound = (event) => {
+  if (gameEnd == true) {
+    return;
+  }
   let result = "";
 
   const rock = "rock";
@@ -84,42 +85,28 @@ const playRound = (event) => {
 
   if (playerScore == 5) {
     winner = `You win the game! Well done.`;
+    gameEnd = true;
   } else if (computerScore == 5) {
     winner = `You lose the game! Good luck next time.`;
+    gameEnd = true;
   }
 
-  displayResults(
-    playerChoice,
-    computerChoice,
-    playerScore,
-    computerScore,
-    result,
-    winner
-  );
+  displayResults(playerChoice, computerChoice, result);
 };
 
-// const game = () => {
-//   // for (let i = 0; i < 5; i++) {
-//   //   const results = playRound(getPlayerChoice(), getComputerChoice());
-//   //   console.log(results[0]);
-//   //   if (results[1] == 0) {
-//   //     computerScore++;
-//   //   } else {
-//   //     playerScore++;
-//   //   }
-//   // }
-//   if (playerScore > computerScore) {
-//     console.log(`You win the game! Well done.`);
-//   } else {
-//     console.log(`You lose the game! Good luck next time.`);
-//   }
-//   // console.log(playerScore);
-//   // console.log(computerScore);
-// };
-// game();
+const playAgain = () => {
+  gameEnd = false;
+  playerScore = 0;
+  computerScore = 0;
+  winner = "";
+  displayResults();
+};
 
 const gameButtons = document.querySelectorAll(".btn-game");
+const playAgainBtn = document.querySelector(".play-again");
 
 gameButtons.forEach((btn) => {
   btn.addEventListener("click", playRound);
 });
+playAgainBtn.addEventListener("click", playAgain);
+displayResults();
