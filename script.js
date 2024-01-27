@@ -20,43 +20,41 @@ const getComputerChoice = () => {
 };
 
 const playRound = (event) => {
-  // let result = "";
-  let playerChoice = event.target.textContent;
-  playerChoice = playerChoice.trim().toLowerCase();
-  const computerChoice = getComputerChoice();
-  console.log(playerChoice);
-  console.log(computerChoice);
+  let result = "";
   const rock = "rock";
   const scissors = "scissors";
   const paper = "paper";
-  if (playerChoice == "") {
-    alert(`You didn't choose anything `);
-  }
-  if (playerChoice == rock && computerChoice == rock) {
-    console.log(`Draw, let's go another round`);
+
+  let playerChoice = event.target.textContent;
+  playerChoice = playerChoice.trim().toLowerCase();
+  const computerChoice = getComputerChoice();
+
+  const playerChoiceDisplay = document.querySelector(".player-choice");
+  const computerChoiceDisplay = document.querySelector(".computer-choice");
+  const resultDisplay = document.querySelector(".result");
+
+  playerChoiceDisplay.textContent = playerChoice;
+  computerChoiceDisplay.textContent = computerChoice;
+
+  if (playerChoice == computerChoice) {
+    result = `Draw, let's go another round`;
     // return playRound(event, getPlayerChoice(), getComputerChoice());
   } else if (playerChoice == rock && computerChoice == paper) {
-    return [`You lose! ${paper} beats ${rock}`, 0];
+    result = `You lose! ${paper} beats ${rock}`;
   } else if (playerChoice == rock && computerChoice == scissors) {
-    return [`You Win! ${rock} beats ${scissors}`, 1];
-  } else if (playerChoice == paper && computerChoice == paper) {
-    console.log(`Draw, let's go another round`);
-    // return playRound(event, getPlayerChoice(), getComputerChoice());
+    result = `You Win! ${rock} beats ${scissors}`;
   } else if (playerChoice == paper && computerChoice == scissors) {
-    return [`You Lose! ${scissors} beats ${paper}`, 0];
+    result = `You Lose! ${scissors} beats ${paper}`;
   } else if (playerChoice == paper && computerChoice == rock) {
-    return [`You Win! ${paper} beats ${rock}`, 1];
-  } else if (playerChoice == scissors && computerChoice == scissors) {
-    console.log(`Draw, let's go another round`);
-    // return playRound(event, getPlayerChoice(), getComputerChoice());
+    result = `You Win! ${paper} beats ${rock}`;
   } else if (playerChoice == scissors && computerChoice == rock) {
-    return [`You Lose! ${rock} beats ${scissors}`, 0];
+    result = `You Lose! ${rock} beats ${scissors}`;
   } else if (playerChoice == scissors && computerChoice == paper) {
-    return [`You Win! ${scissors} beats ${paper}`, 1];
+    result = `You Win! ${scissors} beats ${paper}`;
   } else {
-    console.log(`Choice out of range, pick again`);
-    // return playRound(getPlayerChoice(), getComputerChoice());
+    result = `Choice out of range, pick again`;
   }
+  resultDisplay.textContent = result;
 };
 
 // const game = () => {
@@ -82,6 +80,7 @@ const playRound = (event) => {
 // game();
 
 const gameButtons = document.querySelectorAll(".btn-game");
+
 gameButtons.forEach((btn) => {
   btn.addEventListener("click", playRound);
 });
