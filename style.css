@@ -60,9 +60,9 @@ main {
 .result {
   font-size: 22px;
   margin-top: 0.5em;
+  word-spacing: 3px;
 }
 .winner {
   font-size: 26px;
-}
-.play-again {
+  word-spacing: 3px;
 }
