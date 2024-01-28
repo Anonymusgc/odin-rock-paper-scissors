@@ -4,25 +4,40 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <header>
       <h1>Rock, Paper, Scissors The Game</h1>
     </header>
     <main>
-      <h2>Pick on of the below</h2>
-      <button class="btn-game">Rock</button>
-      <button class="btn-game">Paper</button>
-      <button class="btn-game">Scissors</button>
-      <button class="play-again">Play again</button>
-      <section>
+      <h2>Pick one of the below:</h2>
+      <section class="choices">
+        <button class="btn-game">Rock</button>
+        <button class="btn-game">Paper</button>
+        <button class="btn-game">Scissors</button>
+      </section>
+
+      <section class="results">
         <h3 class="winner"></h3>
         <p class="result"></p>
-        <p class="player-choice"></p>
-        <p class="computer-choice"></p>
-        <p class="player-score"></p>
-        <p class="computer-score"></p>
+        <section class="players">
+          <section class="player">
+            <p>Player Score</p>
+            <p class="player-score"></p>
+            <p>Player Choice</p>
+            <p class="player-choice"></p>
+          </section>
+          <section class="computer">
+            <p>Computer Score</p>
+            <p class="computer-score"></p>
+            <p>Computer Choice</p>
+            <p class="computer-choice"></p>
+          </section>
+        </section>
       </section>
+
+      <button class="play-again">Play again</button>
     </main>
     <script src="./script.js"></script>
   </body>

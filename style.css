@@ -1,0 +1,68 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&display=swap");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+:root {
+  --background-color: #1b1b1b;
+  --background-color2: #2b2b2b;
+  --font-color: #eee;
+}
+body {
+  background-color: var(--background-color);
+  color: var(--font-color);
+  font-family: "Lato", "Verdana", sans-serif;
+}
+header h1 {
+  text-align: center;
+  margin-top: 0.5em;
+  word-spacing: 5px;
+}
+main {
+  margin-top: 3em;
+  text-align: center;
+}
+.choices {
+  margin-top: 2em;
+  display: flex;
+  gap: 1em;
+  justify-content: center;
+}
+.btn-game,
+.play-again {
+  background-color: var(--background-color2);
+  color: var(--font-color);
+  font-size: 18px;
+  padding: 1em;
+  width: 10%;
+  min-width: fit-content;
+  border-radius: 0.5em;
+}
+.results {
+  margin: 1em auto;
+  font-size: 20px;
+  /* background-color: #41095e86; */
+  width: 75%;
+}
+.players {
+  margin-top: 1em;
+  display: flex;
+  gap: 2em;
+  justify-content: center;
+}
+.players section {
+  background-color: #41095e86;
+  padding: 1em 2em;
+  border-radius: 1em;
+  line-height: 1.3em;
+}
+.result {
+  font-size: 22px;
+  margin-top: 0.5em;
+}
+.winner {
+  font-size: 26px;
+}
+.play-again {
+}
